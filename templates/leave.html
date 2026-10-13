@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Leave · Attendly{% endblock %}
+{% block content %}
+<div class="card shadow-sm"><div class="card-body">
+  <h2 class="h5">Leave requests {% if user.role == 'manager' %}<small class="text-muted">(your team)</small>{% elif user.role == 'admin' %}<small class="text-muted">(everyone)</small>{% endif %}</h2>
+  <div class="row g-2 mb-3">
+    {% if user.role != 'employee' %}<div class="col-md-4"><input type="search" id="lv-q" class="form-control" placeholder="Search employee name or email…" aria-label="Search"></div>{% endif %}
+    <div class="col-md-3"><select id="lv-status" class="form-select" aria-label="Status"><option value="">All statuses</option>
+      <option>pending</option><option>approved</option><option>rejected</option><option>cancelled</option></select></div>
+    <div class="col-md-2"><input type="date" id="lv-from" class="form-control" aria-label="From date"></div>
+    <div class="col-md-2"><input type="date" id="lv-to" class="form-control" aria-label="To date"></div>
+    {% if user.role != 'employee' %}<div class="col-md-auto"><a class="btn btn-outline-secondary" id="lv-export" href="#">Export CSV</a></div>{% endif %}
+  </div>
+  <div class="table-responsive"><table class="table table-hover align-middle" id="lv-table">
+    <thead><tr><th>Employee</th><th>Type</th><th>Dates</th><th>Days</th><th>Status</th><th>Reviewed by</th><th></th></tr></thead><tbody></tbody></table></div>
+  <div id="lv-pager"></div>
+</div></div>
+{% endblock %}

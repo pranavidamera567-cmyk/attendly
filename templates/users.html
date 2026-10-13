@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Users · Attendly{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-4"><div class="card shadow-sm"><div class="card-body">
+    <h2 class="h5">Add employee</h2>
+    <form id="user-form" class="row g-2">
+      <div class="col-12"><input id="uf-name" class="form-control" placeholder="Full name" required aria-label="Full name"></div>
+      <div class="col-12"><input id="uf-email" type="email" class="form-control" placeholder="Email" required aria-label="Email"></div>
+      <div class="col-12"><input id="uf-password" type="password" class="form-control" placeholder="Initial password (8+ chars)" minlength="8" required aria-label="Password"></div>
+      <div class="col-6"><select id="uf-role" class="form-select" aria-label="Role"><option>employee</option><option>manager</option><option>admin</option></select></div>
+      <div class="col-6"><select id="uf-dept" class="form-select" aria-label="Department"></select></div>
+      <div class="col-12"><select id="uf-manager" class="form-select" aria-label="Manager"><option value="">No manager</option></select></div>
+      <div class="col-12"><button class="btn btn-primary">Create</button></div>
+    </form>
+  </div></div></div>
+  <div class="col-lg-8"><div class="card shadow-sm"><div class="card-body">
+    <input type="search" id="us-q" class="form-control mb-3" placeholder="Search name or email…" aria-label="Search users">
+    <div class="table-responsive"><table class="table table-sm table-hover align-middle" id="us-table"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Department</th><th>Manager</th><th></th></tr></thead><tbody></tbody></table></div>
+  </div></div></div>
+</div>
+{% endblock %}

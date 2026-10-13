@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card shadow-sm mb-4"><div class="card-body">
+      <h2 class="h5">Today</h2>
+      <div id="today-status" class="mb-3 text-muted">Loading…</div>
+      <button class="btn btn-success" id="check-in">Check in</button>
+      <button class="btn btn-outline-secondary" id="check-in-remote">Check in (remote)</button>
+      <button class="btn btn-outline-primary" id="check-out">Check out</button>
+    </div></div>
+    <div class="card shadow-sm"><div class="card-body">
+      <h2 class="h5">Leave balances <small class="text-muted" id="balance-year"></small></h2>
+      <div id="balances"></div>
+    </div></div>
+  </div>
+  <div class="col-lg-7">
+    <div class="card shadow-sm mb-4"><div class="card-body">
+      <h2 class="h5">Request leave</h2>
+      <form id="leave-form" class="row g-2">
+        <div class="col-sm-4"><label class="form-label" for="lf-type">Type</label><select id="lf-type" class="form-select" required></select></div>
+        <div class="col-sm-4"><label class="form-label" for="lf-start">From</label><input id="lf-start" type="date" class="form-control" required></div>
+        <div class="col-sm-4"><label class="form-label" for="lf-end">To</label><input id="lf-end" type="date" class="form-control" required></div>
+        <div class="col-12"><label class="form-label" for="lf-reason">Reason</label><input id="lf-reason" class="form-control" maxlength="500"></div>
+        <div class="col-12"><small class="text-muted" id="lf-days"></small></div>
+        <div class="col-12"><button class="btn btn-primary">Submit request</button></div>
+      </form>
+    </div></div>
+    {% if user.role in ('manager', 'admin') %}
+    <div class="card shadow-sm"><div class="card-body">
+      <h2 class="h5">Waiting for your decision</h2>
+      <div id="approvals"></div>
+    </div></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

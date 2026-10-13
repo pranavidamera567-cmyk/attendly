@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Reports · Attendly{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap gap-2 align-items-end mb-3 d-print-none">
+  <div><label class="form-label mb-0" for="rp-month">Month</label><input type="month" id="rp-month" class="form-control"></div>
+  <div><label class="form-label mb-0" for="rp-dept">Department</label><select id="rp-dept" class="form-select"><option value="">All</option></select></div>
+  <div class="flex-grow-1"><label class="form-label mb-0" for="rp-q">Search employee</label><input type="search" id="rp-q" class="form-control"></div>
+  <button class="btn btn-outline-secondary" onclick="window.print()">Print</button>
+</div>
+<h1 class="h4 d-none d-print-block" id="print-title"></h1>
+<div class="card shadow-sm mb-4"><div class="card-body">
+  <div class="d-flex justify-content-between"><h2 class="h5">By department</h2><a class="btn btn-sm btn-outline-secondary d-print-none" id="export-dept" href="#">Export CSV</a></div>
+  <div class="table-responsive"><table class="table table-sm" id="dept-table"><thead><tr>
+    <th>Department</th><th class="text-end">Headcount</th><th class="text-end">Expected days</th><th class="text-end">Attended</th><th class="text-end">Leave</th><th class="text-end">Absent</th><th class="text-end">Late</th><th class="text-end">Hours</th><th class="text-end">Attendance</th>
+  </tr></thead><tbody></tbody></table></div>
+</div></div>
+<div class="card shadow-sm"><div class="card-body">
+  <div class="d-flex justify-content-between"><h2 class="h5">By employee</h2><a class="btn btn-sm btn-outline-secondary d-print-none" id="export-emp" href="#">Export CSV</a></div>
+  <div class="table-responsive"><table class="table table-sm table-hover" id="emp-table"><thead><tr>
+    <th>Employee</th><th>Department</th><th class="text-end">Expected</th><th class="text-end">Present</th><th class="text-end">Half days</th><th class="text-end">Leave</th><th class="text-end">Absent</th><th class="text-end">Late</th><th class="text-end">Hours</th><th class="text-end">Attendance</th>
+  </tr></thead><tbody></tbody></table></div>
+  <p class="text-muted small mb-0">"Expected" counts working days (Mon–Fri, excluding public holidays) up to today for the current month. Attendance = attended ÷ (expected − leave).</p>
+</div></div>
+{% endblock %}

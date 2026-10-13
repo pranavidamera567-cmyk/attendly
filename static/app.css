@@ -1,0 +1,9 @@
+body { background: #f4f6f9; }
+.card { border: 0; }
+.balance-row + .balance-row { margin-top: .75rem; }
+.table th { white-space: nowrap; }
+@media print {
+  body { background: #fff; }
+  .card { box-shadow: none !important; }
+  nav, .btn, #toast-area { display: none !important; }
+}

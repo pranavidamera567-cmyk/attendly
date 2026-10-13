@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Log in · Attendly{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-5"><div class="col-md-5 col-lg-4">
+  <h1 class="h3 mb-3 text-center">Attendly</h1>
+  <form id="login-form" class="card card-body shadow-sm">
+    <label class="form-label" for="email">Email</label>
+    <input class="form-control mb-3" id="email" type="email" autocomplete="username" required autofocus>
+    <label class="form-label" for="password">Password</label>
+    <input class="form-control mb-3" id="password" type="password" autocomplete="current-password" required>
+    <button class="btn btn-primary">Log in</button>
+  </form>
+  <div class="card card-body mt-3 small text-muted">
+    <b>Demo accounts</b> (password <code>demo1234</code>)<br>
+    <a href="#" data-demo="alex@example.test">alex@example.test</a> – employee<br>
+    <a href="#" data-demo="morgan@example.test">morgan@example.test</a> – manager (Engineering)<br>
+    <a href="#" data-demo="admin@example.test">admin@example.test</a> – administrator
+  </div>
+</div></div>
+{% endblock %}
